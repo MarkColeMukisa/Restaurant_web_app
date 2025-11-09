@@ -366,7 +366,55 @@ export  const popularDestinations = [
       tags: ['Trending', 'Hearty', 'Authentic']
     },
     {
+      id: 4,
+      name: 'Birria Tacos',
+      image: 'https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
+      restaurant: 'El Fuego',
+      price: '$16',
+      rating: 4.9,
+      prepTime: '18-22 min',
+      category: 'Tacos',
+      calories: '380 cal',
+      isVegetarian: false,
+      isSpicy: true,
+      isPopular: true,
+      description: 'Slow-cooked beef tacos with consommé dip',
+      tags: ['Trending', 'Hearty', 'Authentic']
+    },
+    {
+      id: 5,
+      name: 'Birria Tacos',
+      image: 'https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
+      restaurant: 'El Fuego',
+      price: '$16',
+      rating: 4.9,
+      prepTime: '18-22 min',
+      category: 'Tacos',
+      calories: '380 cal',
+      isVegetarian: false,
+      isSpicy: true,
+      isPopular: true,
+      description: 'Slow-cooked beef tacos with consommé dip',
+      tags: ['Trending', 'Hearty', 'Authentic']
+    },
+    {
       id: 6,
+      name: 'Birria Tacos',
+      image: 'https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
+      restaurant: 'El Fuego',
+      price: '$16',
+      rating: 4.9,
+      prepTime: '18-22 min',
+      category: 'Tacos',
+      calories: '380 cal',
+      isVegetarian: false,
+      isSpicy: true,
+      isPopular: true,
+      description: 'Slow-cooked beef tacos with consommé dip',
+      tags: ['Trending', 'Hearty', 'Authentic']
+    },
+    {
+      id: 7,
       name: 'Butter Chicken',
       image: 'https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
       restaurant: 'Spice Route',
@@ -380,6 +428,86 @@ export  const popularDestinations = [
       isPopular: true,
       description: 'Tender chicken in rich tomato butter sauce',
       tags: ['Creamy', 'Aromatic', 'Best Seller']
+    },
+    {
+      id: 8,
+      name: 'Birria Tacos',
+      image: 'https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
+      restaurant: 'El Fuego',
+      price: '$16',
+      rating: 4.9,
+      prepTime: '18-22 min',
+      category: 'Tacos',
+      calories: '380 cal',
+      isVegetarian: false,
+      isSpicy: true,
+      isPopular: true,
+      description: 'Slow-cooked beef tacos with consommé dip',
+      tags: ['Trending', 'Hearty', 'Authentic']
+    },
+    {
+      id: 9,
+      name: 'Birria Tacos',
+      image: 'https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
+      restaurant: 'El Fuego',
+      price: '$16',
+      rating: 4.9,
+      prepTime: '18-22 min',
+      category: 'Tacos',
+      calories: '380 cal',
+      isVegetarian: false,
+      isSpicy: true,
+      isPopular: true,
+      description: 'Slow-cooked beef tacos with consommé dip',
+      tags: ['Trending', 'Hearty', 'Authentic']
+    },
+    {
+      id: 10,
+      name: 'Birria Tacos',
+      image: 'https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
+      restaurant: 'El Fuego',
+      price: '$16',
+      rating: 4.9,
+      prepTime: '18-22 min',
+      category: 'Tacos',
+      calories: '380 cal',
+      isVegetarian: false,
+      isSpicy: true,
+      isPopular: true,
+      description: 'Slow-cooked beef tacos with consommé dip',
+      tags: ['Trending', 'Hearty', 'Authentic']
+    },
+    {
+      id: 11,
+      name: 'Birria Tacos',
+      image: 'https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
+      restaurant: 'El Fuego',
+      price: '$16',
+      rating: 4.9,
+      prepTime: '18-22 min',
+      category: 'Tacos',
+      calories: '380 cal',
+      isVegetarian: false,
+      isSpicy: true,
+      isPopular: true,
+      description: 'Slow-cooked beef tacos with consommé dip',
+      tags: ['Trending', 'Hearty', 'Authentic']
+    },
+    {
+      id: 12,
+      name: 'Birria Tacos',
+      image: 'https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
+      restaurant: 'El Fuego',
+      price: '$16',
+      rating: 4.9,
+      prepTime: '18-22 min',
+      category: 'Tacos',
+      calories: '380 cal',
+      isVegetarian: false,
+      isSpicy: true,
+      isPopular: true,
+      description: 'Slow-cooked beef tacos with consommé dip',
+      tags: ['Trending', 'Hearty', 'Authentic']
     },
   ];
 
@@ -467,4 +595,24 @@ export const featuredItems = [
     export  const popularCuisines = [
     'Italian', 'Japanese', 'Mexican', 'Chinese', 'Indian', 'Thai', 'American', 'Mediterranean'
   ];
+
+  export const cardData = [
+        {
+            title: "Unlock Your Creative Flow",
+            image: "https://images.unsplash.com/photo-1543487945-139a97f387d5?w=1200&auto=format&fit=crop&q=60",
+        },
+        {
+            title: "Design Your Digital Future",
+            image: "https://images.unsplash.com/photo-1529254479751-faeedc59e78f?w=1200&auto=format&fit=crop&q=60",
+        },
+        {
+            title: "Build with Passion, Ship with Pride",
+            image: "https://images.unsplash.com/photo-1618327907215-4e514efabd41?w=1200&auto=format&fit=crop&q=60",
+        },
+        {
+            title: "Think Big, Code Smart",
+            image: "https://images.unsplash.com/photo-1583407723467-9b2d22504831?w=1200&auto=format&fit=crop&q=60",
+        },
+    ];
+
   

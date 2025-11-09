@@ -1,11 +1,10 @@
-import React from 'react';
+import React from 'react'
 import { Star, Clock, DollarSign, Heart, Flame, Leaf, Beef, Wheat } from 'lucide-react';
-import { popularMenus } from '../assets/assets';
+import { popularMenus } from '../assets/assets'
 
-const PopularMenus = () => {
-  
+const MenuCard = () => {
 
-  const getDietIcon = (menu) => {
+    const getDietIcon = (menu) => {
     if (menu.isVegetarian) return <Leaf className="w-4 h-4 text-green-500" />;
     if (menu.isSpicy) return <Flame className="w-4 h-4 text-red-500" />;
     return <Beef className="w-4 h-4 text-orange-500" />;
@@ -18,21 +17,10 @@ const PopularMenus = () => {
   };
 
   return (
-    <section className="py-16 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="text-center mb-12">
-          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-            Popular <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Menu Items</span>
-          </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Discover the most ordered and highly-rated dishes from top restaurants near you.
-          </p>
-        </div>
-
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Menus Grid - 4 cards per row */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {popularMenus.slice(0,4).map((menu) => (
+          {popularMenus.map((menu) => (
             <div
               key={menu.id}
               className="group bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-500 transform hover:-translate-y-1 overflow-hidden cursor-pointer border border-gray-100"
@@ -135,10 +123,8 @@ const PopularMenus = () => {
             </div>
           ))}
         </div>
-        
-      </div>
-    </section>
-  );
-};
+    </div>
+  )
+}
 
-export default PopularMenus;
+export default MenuCard

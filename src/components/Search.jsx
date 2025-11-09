@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Search, MapPin, Utensils } from 'lucide-react';
 
-const SearchComponent = () => {
+const SearchComponent = ({SearchType = "Restaurant"}) => {
   const [searchQuery, setSearchQuery] = useState({
     location: '',
     cuisine: ''
@@ -24,7 +24,7 @@ const SearchComponent = () => {
         {/* Section Header */}
         <div className="text-center mb-12">
           <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-            Find Your Perfect <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Restaurant</span>
+            Find Your Perfect <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">{SearchType}</span>
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             Search by location and cuisine to discover amazing dining experiences near you.
