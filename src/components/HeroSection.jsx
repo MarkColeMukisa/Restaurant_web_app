@@ -1,142 +1,395 @@
-import React from 'react';
-import { Search, Star, MapPin, Utensils } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Search, Star, MapPin, Utensils, Clock, DollarSign, Heart, Shield, Users, Award } from 'lucide-react';
 
 const HeroSection = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isAnimating, setIsAnimating] = useState(false);
+  const [searchLocation, setSearchLocation] = useState('');
+  const [searchCuisine, setSearchCuisine] = useState('');
+
+  const featuredItems = [
+    {
+      type: 'restaurant',
+      image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+      name: 'Bella Vista',
+      cuisine: 'Italian',
+      price: '$$$',
+      location: 'Downtown',
+      rating: 4.7,
+      reviews: 284,
+      distance: '0.8 miles',
+      status: 'Open Now',
+      isOpen: true,
+      deliveryTime: '25-35 min',
+      promotion: 'Free delivery'
+    },
+    {
+      type: 'menu',
+      image: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+      name: 'Truffle Pasta',
+      restaurant: 'Bella Vista',
+      price: '$24',
+      category: 'Main Course',
+      rating: 4.8,
+      prepTime: '20-25 min',
+      isFeatured: true,
+      calories: '420 cal',
+      popular: true
+    },
+    {
+      type: 'restaurant',
+      image: 'https://images.unsplash.com/photo-1559339352-11d035aa65de?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+      name: 'Sakura Sushi',
+      cuisine: 'Japanese',
+      price: '$$',
+      location: 'Midtown',
+      rating: 4.5,
+      reviews: 156,
+      distance: '1.2 miles',
+      status: 'Closes soon',
+      isOpen: true,
+      deliveryTime: '30-40 min',
+      promotion: '20% off first order'
+    },
+    {
+      type: 'menu',
+      image: 'https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+      name: 'Avocado Roll',
+      restaurant: 'Sakura Sushi',
+      price: '$12',
+      category: 'Appetizer',
+      rating: 4.6,
+      prepTime: '10-15 min',
+      isFeatured: false,
+      calories: '180 cal',
+      popular: true
+    }
+  ];
+
+  const popularCuisines = [
+    'Italian', 'Japanese', 'Mexican', 'Chinese', 'Indian', 'Thai', 'American', 'Mediterranean'
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIsAnimating(true);
+      setTimeout(() => {
+        setCurrentIndex((prevIndex) => 
+          prevIndex === featuredItems.length - 1 ? 0 : prevIndex + 1
+        );
+        setIsAnimating(false);
+      }, 400);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [featuredItems.length]);
+
+  const currentItem = featuredItems[currentIndex];
+
+  const nextItem = () => {
+    if (isAnimating) return;
+    setIsAnimating(true);
+    setTimeout(() => {
+      setCurrentIndex(currentIndex === featuredItems.length - 1 ? 0 : currentIndex + 1);
+      setIsAnimating(false);
+    }, 400);
+  };
+
+  const prevItem = () => {
+    if (isAnimating) return;
+    setIsAnimating(true);
+    setTimeout(() => {
+      setCurrentIndex(currentIndex === 0 ? featuredItems.length - 1 : currentIndex - 1);
+      setIsAnimating(false);
+    }, 400);
+  };
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    // Handle search logic here
+    console.log('Searching for:', { searchLocation, searchCuisine });
+  };
+
   return (
-    <div className="relative min-h-screen bg-gradient-to-br from-orange-50 to-red-50 overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZjdmNmYiIGZpbGwtb3BhY2l0eT0iMC40Ij48Y2lyY2xlIGN4PSIzMCIgY3k9IjMwIiByPSIyIi8+PC9nPjwvZz48L3N2Zz4=')] opacity-50"></div>
-      
+    <div className="relative min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 overflow-hidden">
+      {/* Enhanced Background with subtle animation */}
+      <div className="absolute inset-0 bg-gradient-to-br from-white via-slate-50 to-slate-100">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-slate-200/30 via-transparent to-transparent"></div>
+      </div>
+
       {/* Main Content */}
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-16">
-        <div className="grid lg:grid-cols-2 gap-12 items-center min-h-[80vh]">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 lg:pt-24 pb-16">
+        <div className="grid lg:grid-cols-2 gap-16 lg:gap-20 items-center">
           
           {/* Left Content */}
-          <div className="text-center lg:text-left space-y-8">
-            <div className="space-y-4">
-              <h1 className="text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-900 leading-tight">
-                Find Your Perfect
-                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-red-600">
-                  Dining Experience
+          <div className="text-center lg:text-left space-y-8 lg:space-y-10">
+            {/* Header Section */}
+            <div className="space-y-6">
+              <div className="inline-flex items-center gap-2 bg-blue-50 text-blue-700 px-4 py-2 rounded-full text-sm font-medium mb-4">
+                <Award className="w-4 h-4" />
+                Trusted by 10,000+ food lovers
+              </div>
+              
+              <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 leading-tight">
+                Discover & Savor
+                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 mt-2">
+                  Exceptional Flavors
                 </span>
               </h1>
               
-              <p className="text-xl lg:text-2xl text-gray-600 max-w-2xl leading-relaxed">
-                Discover the best restaurants, menus, and deals in your area. 
-                From cozy cafes to fine dining, we've got your cravings covered.
+              <p className="text-lg lg:text-xl text-gray-600 max-w-2xl leading-relaxed">
+                Find the perfect restaurant for every occasion. From local favorites to hidden gems, 
+                we connect you with the best dining experiences in your city.
               </p>
             </div>
 
-            {/* Search Bar */}
+            {/* Enhanced Search Bar */}
             <div className="max-w-2xl mx-auto lg:mx-0">
-              <div className="bg-white rounded-2xl shadow-2xl p-2 border border-gray-200">
-                <div className="flex flex-col sm:flex-row gap-2">
-                  <div className="flex-1 flex items-center gap-3 px-4 py-3">
-                    <MapPin className="w-5 h-5 text-gray-400" />
+            <form onSubmit={handleSearch} className="space-y-3">
+                <div className="bg-white rounded-xl shadow-md p-1 border border-gray-100 hover:shadow-lg transition-all duration-300">
+                <div className="flex flex-col sm:flex-row gap-1">
+                    <div className="flex-1 flex items-center gap-2 px-3 py-2.5">
+                    <MapPin className="w-4 h-4 text-blue-500" />
                     <input
-                      type="text"
-                      placeholder="Enter your location or neighborhood..."
-                      className="flex-1 outline-none text-gray-700 placeholder-gray-400"
+                        type="text"
+                        value={searchLocation}
+                        onChange={(e) => setSearchLocation(e.target.value)}
+                        placeholder="Enter your location..."
+                        className="flex-1 outline-none text-gray-700 placeholder-gray-400 bg-transparent text-sm"
                     />
-                  </div>
-                  <div className="flex-1 flex items-center gap-3 px-4 py-3 border-l border-gray-200">
-                    <Utensils className="w-5 h-5 text-gray-400" />
+                    </div>
+                    <div className="flex-1 flex items-center gap-2 px-3 py-2.5 border-l border-gray-100">
+                    <Utensils className="w-4 h-4 text-blue-500" />
                     <input
-                      type="text"
-                      placeholder="What are you craving? (Italian, Sushi, etc.)"
-                      className="flex-1 outline-none text-gray-700 placeholder-gray-400"
+                        type="text"
+                        value={searchCuisine}
+                        onChange={(e) => setSearchCuisine(e.target.value)}
+                        placeholder="What are you craving?"
+                        className="flex-1 outline-none text-gray-700 placeholder-gray-400 bg-transparent text-sm"
                     />
-                  </div>
-                  <button className="bg-gradient-to-r from-orange-500 to-red-600 text-white px-8 py-3 rounded-xl font-semibold hover:from-orange-600 hover:to-red-700 transition-all duration-300 transform hover:scale-105 flex items-center gap-2 justify-center">
-                    <Search className="w-5 h-5" />
+                    </div>
+                    <button 
+                    type="submit"
+                    className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2.5 rounded-lg font-semibold hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-[1.02] flex items-center gap-2 justify-center shadow-md hover:shadow-lg text-sm"
+                    >
+                    <Search className="w-4 h-4" />
                     Search
+                    </button>
+                </div>
+                </div>
+            </form>
+
+            {/* Popular Cuisines - Also Reduced */}
+            <div className="flex flex-wrap justify-center lg:justify-start gap-1.5 mt-3">
+                <span className="text-xs text-gray-500 mr-1">Popular:</span>
+                {popularCuisines.map((cuisine) => (
+                <button
+                    key={cuisine}
+                    onClick={() => setSearchCuisine(cuisine)}
+                    className="text-xs text-gray-600 hover:text-blue-600 transition-colors duration-200"
+                >
+                    {cuisine}
+                </button>
+                )).reduce((prev, curr, index) => [
+                prev,
+                <span key={`dot-${index}`} className="text-gray-300 text-xs">•</span>,
+                curr
+                ])}
+            </div>
+            </div>
+
+            {/* Enhanced Stats */}
+            <div className="flex flex-wrap justify-center lg:justify-start gap-8 lg:gap-12 pt-6">
+              <div className="text-center lg:text-left">
+                <div className="flex items-center gap-2 justify-center lg:justify-start">
+                  <div className="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center">
+                    <Users className="w-5 h-5 text-blue-600" />
+                  </div>
+                  <div>
+                    <div className="text-2xl font-bold text-gray-900">50K+</div>
+                    <p className="text-gray-600 text-sm">Happy Customers</p>
+                  </div>
+                </div>
+              </div>
+              <div className="text-center lg:text-left">
+                <div className="flex items-center gap-2 justify-center lg:justify-start">
+                  <div className="w-10 h-10 bg-green-50 rounded-lg flex items-center justify-center">
+                    <Star className="w-5 h-5 text-green-600 fill-current" />
+                  </div>
+                  <div>
+                    <div className="text-2xl font-bold text-gray-900">4.8</div>
+                    <p className="text-gray-600 text-sm">Average Rating</p>
+                  </div>
+                </div>
+              </div>
+              <div className="text-center lg:text-left">
+                <div className="flex items-center gap-2 justify-center lg:justify-start">
+                  <div className="w-10 h-10 bg-purple-50 rounded-lg flex items-center justify-center">
+                    <Shield className="w-5 h-5 text-purple-600" />
+                  </div>
+                  <div>
+                    <div className="text-2xl font-bold text-gray-900">100%</div>
+                    <p className="text-gray-600 text-sm">Verified</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Right Content - Enhanced Card Carousel */}
+          <div className="relative">
+            {/* Navigation Arrows */}
+            <button 
+              onClick={prevItem}
+              className="absolute -left-6 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-300 z-10 hover:scale-110 border border-gray-100"
+            >
+              <svg className="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+            
+            <button 
+              onClick={nextItem}
+              className="absolute -right-6 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-300 z-10 hover:scale-110 border border-gray-100"
+            >
+              <svg className="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+
+            {/* Main Card */}
+            <div className={`bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 transform ${
+              isAnimating ? 'opacity-0 scale-95' : 'opacity-100 scale-100'
+            } border border-gray-100 overflow-hidden`}>
+              {/* Image Container */}
+              <div className="relative">
+                <img
+                  src={currentItem.image}
+                  alt={currentItem.name}
+                  className="w-full h-72 object-cover"
+                />
+                
+                {/* Gradient Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                
+                {/* Top Badges */}
+                <div className="absolute top-4 left-4 flex flex-col gap-2">
+                  <div className={`px-3 py-1.5 rounded-full text-sm font-semibold backdrop-blur-sm ${
+                    currentItem.type === 'restaurant' 
+                      ? currentItem.isOpen 
+                        ? 'bg-green-500/90 text-white' 
+                        : 'bg-red-500/90 text-white'
+                      : currentItem.isFeatured 
+                        ? 'bg-orange-500/90 text-white'
+                        : 'bg-blue-500/90 text-white'
+                  }`}>
+                    {currentItem.type === 'restaurant' ? currentItem.status : 'Featured'}
+                  </div>
+                  {currentItem.popular && (
+                    <div className="bg-yellow-500/90 text-white px-3 py-1.5 rounded-full text-sm font-semibold backdrop-blur-sm">
+                      Popular
+                    </div>
+                  )}
+                </div>
+                
+                {/* Right Side Info */}
+                <div className="absolute top-4 right-4 flex flex-col gap-2">
+                  <div className="bg-white/95 backdrop-blur-sm px-3 py-1.5 rounded-full shadow-md flex items-center gap-1">
+                    <Star className="w-4 h-4 text-yellow-500 fill-current" />
+                    <span className="text-sm font-semibold text-gray-900">{currentItem.rating}</span>
+                  </div>
+                  {currentItem.type === 'restaurant' && currentItem.promotion && (
+                    <div className="bg-purple-500/95 text-white px-3 py-1.5 rounded-full text-sm font-semibold backdrop-blur-sm">
+                      {currentItem.promotion}
+                    </div>
+                  )}
+                </div>
+
+                {/* Bottom Info */}
+                <div className="absolute bottom-4 left-4 right-4">
+                  <div className="bg-black/70 backdrop-blur-sm text-white px-3 py-2 rounded-lg">
+                    <div className="flex justify-between items-center">
+                      <span className="text-sm font-medium">
+                        {currentItem.type === 'restaurant' ? '🍽️ Restaurant' : '📋 Menu Item'}
+                      </span>
+                      {currentItem.type === 'restaurant' ? (
+                        <span className="text-sm">{currentItem.deliveryTime}</span>
+                      ) : (
+                        <span className="text-sm">{currentItem.calories}</span>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Content Below Image */}
+              <div className="p-6">
+                <div className="flex items-start justify-between">
+                  <div className="flex-1">
+                    <h3 className="text-xl font-bold text-gray-900 mb-1">{currentItem.name}</h3>
+                    
+                    {currentItem.type === 'restaurant' ? (
+                      <>
+                        <p className="text-gray-600 mb-2">
+                          {currentItem.cuisine} • {currentItem.price} • {currentItem.location}
+                        </p>
+                        <div className="flex items-center gap-4 text-sm text-gray-500">
+                          <div className="flex items-center gap-1">
+                            <MapPin className="w-4 h-4" />
+                            <span>{currentItem.distance}</span>
+                          </div>
+                          <div className="flex items-center gap-1">
+                            <Star className="w-4 h-4 text-yellow-500 fill-current" />
+                            <span>{currentItem.reviews} reviews</span>
+                          </div>
+                        </div>
+                      </>
+                    ) : (
+                      <>
+                        <p className="text-gray-600 mb-2">
+                          {currentItem.restaurant} • {currentItem.category}
+                        </p>
+                        <div className="flex items-center gap-4 text-sm text-gray-500">
+                          <div className="flex items-center gap-1">
+                            <DollarSign className="w-4 h-4" />
+                            <span>{currentItem.price}</span>
+                          </div>
+                          <div className="flex items-center gap-1">
+                            <Clock className="w-4 h-4" />
+                            <span>{currentItem.prepTime}</span>
+                          </div>
+                        </div>
+                      </>
+                    )}
+                  </div>
+                  <button className="ml-4 p-2 text-gray-400 hover:text-red-500 transition-colors duration-200">
+                    <Heart className="w-5 h-5" />
                   </button>
                 </div>
               </div>
             </div>
 
-            {/* Stats */}
-            <div className="flex flex-wrap justify-center lg:justify-start gap-8 pt-4">
-              <div className="text-center">
-                <div className="flex items-center gap-1 justify-center lg:justify-start">
-                  <Star className="w-5 h-5 text-yellow-400 fill-current" />
-                  <span className="text-2xl font-bold text-gray-900">4.8</span>
-                </div>
-                <p className="text-gray-600 text-sm">Average Rating</p>
-              </div>
-              <div className="text-center">
-                <div className="text-2xl font-bold text-gray-900">10K+</div>
-                <p className="text-gray-600 text-sm">Restaurants</p>
-              </div>
-              <div className="text-center">
-                <div className="text-2xl font-bold text-gray-900">50+</div>
-                <p className="text-gray-600 text-sm">Cities</p>
-              </div>
-            </div>
-          </div>
-
-          {/* Right Content - Image/Illustration */}
-          <div className="relative">
-            {/* Main Restaurant Card */}
-            <div className="bg-white rounded-3xl shadow-2xl p-6 transform rotate-2 hover:rotate-0 transition-transform duration-500">
-              <div className="relative">
-                <img
-                  src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
-                  alt="Restaurant Interior"
-                  className="w-full h-64 object-cover rounded-2xl"
+            {/* Enhanced Dots Indicator */}
+            <div className="flex justify-center space-x-3 mt-6">
+              {featuredItems.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => {
+                    if (isAnimating) return;
+                    setIsAnimating(true);
+                    setTimeout(() => {
+                      setCurrentIndex(index);
+                      setIsAnimating(false);
+                    }, 400);
+                  }}
+                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                    index === currentIndex 
+                      ? 'bg-blue-600 w-8' 
+                      : 'bg-gray-300 hover:bg-gray-400'
+                  }`}
                 />
-                <div className="absolute top-4 left-4 bg-white px-3 py-1 rounded-full shadow-md">
-                  <span className="text-sm font-semibold text-green-600">Open Now</span>
-                </div>
-                <div className="absolute top-4 right-4 bg-white px-3 py-1 rounded-full shadow-md flex items-center gap-1">
-                  <Star className="w-4 h-4 text-yellow-400 fill-current" />
-                  <span className="text-sm font-semibold">4.7</span>
-                </div>
-              </div>
-              
-              <div className="mt-4">
-                <h3 className="text-xl font-bold text-gray-900">Bella Vista</h3>
-                <p className="text-gray-600 mt-1">Italian • $$$ • Downtown</p>
-                <div className="flex items-center gap-2 mt-2">
-                  <MapPin className="w-4 h-4 text-gray-400" />
-                  <span className="text-sm text-gray-500">0.8 miles away</span>
-                </div>
-              </div>
+              ))}
             </div>
-
-            {/* Floating Cards */}
-            <div className="absolute -bottom-6 -left-6 bg-white rounded-2xl shadow-xl p-4 transform -rotate-6 z-10">
-              <div className="flex items-center gap-3">
-                <div className="w-12 h-12 bg-gradient-to-r from-orange-500 to-red-600 rounded-xl flex items-center justify-center">
-                  <Utensils className="w-6 h-6 text-white" />
-                </div>
-                <div>
-                  <div className="font-semibold text-gray-900">Today's Special</div>
-                  <div className="text-sm text-gray-600">20% Off Pasta</div>
-                </div>
-              </div>
-            </div>
-
-            <div className="absolute -top-6 -right-6 bg-white rounded-2xl shadow-xl p-4 transform rotate-6 z-10">
-              <div className="flex items-center gap-3">
-                <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-600 rounded-xl flex items-center justify-center">
-                  <Star className="w-6 h-6 text-white" />
-                </div>
-                <div>
-                  <div className="font-semibold text-gray-900">Top Rated</div>
-                  <div className="text-sm text-gray-600">Local Favorite</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
-        <div className="animate-bounce">
-          <div className="w-6 h-10 border-2 border-gray-400 rounded-full flex justify-center">
-            <div className="w-1 h-3 bg-gray-400 rounded-full mt-2"></div>
           </div>
         </div>
       </div>
