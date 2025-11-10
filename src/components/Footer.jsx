@@ -1,29 +1,8 @@
 import React from 'react';
-import { Facebook, Twitter, Instagram, Youtube, Mail, Phone, MapPin } from 'lucide-react';
+import {Mail, Phone, MapPin } from 'lucide-react';
+import { linkSections, socialLinks } from '../assets/assets';
 
 const Footer = () => {
-  const linkSections = [
-    {
-      title: "Quick Links",
-      links: ["Home", "Restaurants", "Menus", "Offers & Deals", "Contact Us", "FAQs"]
-    },
-    {
-      title: "Need Help?",
-      links: ["Delivery Information", "Return & Refund Policy", "Payment Methods", "Track your Order", "Contact Support"]
-    },
-    {
-      title: "For Restaurants",
-      links: ["Partner with Us", "Add Your Restaurant", "Business Dashboard", "Marketing Solutions"]
-    }
-  ];
-
-  const socialLinks = [
-    { icon: Facebook, href: "#", label: "Facebook" },
-    { icon: Twitter, href: "#", label: "Twitter" },
-    { icon: Instagram, href: "#", label: "Instagram" },
-    { icon: Youtube, href: "#", label: "YouTube" }
-  ];
-
   return (
     <footer className="bg-slate-900 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -48,11 +27,11 @@ const Footer = () => {
                 </div>
                 <div className="flex items-center gap-3 text-gray-400 text-sm">
                   <Phone className="w-4 h-4" />
-                  <span>+1 (555) 123-4567</span>
+                  <span>+256-752-199-564</span>
                 </div>
                 <div className="flex items-center gap-3 text-gray-400 text-sm">
                   <MapPin className="w-4 h-4" />
-                  <span>123 Food Street, Culinary City</span>
+                  <span>Old Port Bell Mubs, Nakawa</span>
                 </div>
               </div>
             </div>
@@ -87,7 +66,7 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             {/* Copyright */}
             <p className="text-gray-400 text-sm text-center md:text-left">
-              © 2024 RestaurantFinder. All rights reserved.
+              © 2025 RestaurantFinder. All rights reserved.
             </p>
 
             {/* Social Links */}

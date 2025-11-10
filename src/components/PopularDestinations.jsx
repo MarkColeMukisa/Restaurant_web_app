@@ -1,60 +1,18 @@
 import React from 'react';
 import { Star, MapPin, Heart } from 'lucide-react';
+import { popularDestinations } from '../assets/assets';
 
 const PopularDestinations = () => {
-  const popularDestinations = [
-    {
-      id: 1,
-      name: 'Downtown District',
-      image: 'https://images.unsplash.com/photo-1540959733332-0b10da0fdcbb?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
-      restaurants: 85,
-      rating: 4.7,
-      description: 'Trendy restaurants & rooftop bars',
-      distance: 'City Center',
-      featured: ['Italian', 'Fine Dining', 'Asian Fusion']
-    },
-    {
-      id: 2,
-      name: 'Waterfront Area',
-      image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
-      restaurants: 42,
-      rating: 4.5,
-      description: 'Seafood with ocean views',
-      distance: '2 miles',
-      featured: ['Seafood', 'Mediterranean', 'Wine Bars']
-    },
-    {
-      id: 3,
-      name: 'Historic Quarter',
-      image: 'https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
-      restaurants: 63,
-      rating: 4.6,
-      description: 'Charming cafes & traditional cuisine',
-      distance: '1.5 miles',
-      featured: ['French', 'Cafes', 'Traditional']
-    },
-    {
-      id: 4,
-      name: 'Arts District',
-      image: 'https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
-      restaurants: 38,
-      rating: 4.4,
-      description: 'Hip eateries & craft cocktails',
-      distance: '3 miles',
-      featured: ['Fusion', 'Cocktail Bars', 'Vegetarian']
-    },
-
-  ];
 
   return (
     <section className="py-16 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-12">
-          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+        <div className="mb-12">
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">
             Popular <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Destinations</span>
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-600  ">
             Explore the most sought-after dining neighborhoods in the city. Each area offers unique culinary experiences.
           </p>
         </div>

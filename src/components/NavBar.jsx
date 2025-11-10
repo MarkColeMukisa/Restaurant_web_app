@@ -33,7 +33,7 @@ const NavBar = () => {
           {/* Logo */}
           <Link 
             to="/" 
-            className="text-xl font-bold text-red-600 hover:text-red-700 transition-colors duration-300"
+            className="text-xl font-bold text-red-800 hover:text-red-700 transition-colors duration-300"
             onClick={closeMobileMenu}
           >
             RestaurantFinder
@@ -48,8 +48,8 @@ const NavBar = () => {
                   to={link.path}
                   className={`px-3 py-2 text-sm font-medium transition-all duration-200 relative ${
                     isActiveLink(link.path)
-                      ? 'text-red-600 font-semibold'
-                      : 'text-gray-700 hover:text-red-600 hover:bg-gray-50 rounded-md'
+                      ? 'text-red-800 font-semibold'
+                      : 'text-gray-700 hover:text-red-800 hover:bg-gray-50 rounded-md'
                   }`}
                 >
                   {link.label}
@@ -65,13 +65,13 @@ const NavBar = () => {
           <div className="hidden lg:flex items-center space-x-3">
             <Link 
               to="/login" 
-              className="px-4 py-2 border border-gray-300 text-gray-700 rounded-md text-sm font-medium hover:bg-gray-50 hover:border-gray-400 transition-all duration-200"
+              className="px-4 py-2 border border-gray-800 text-gray-700 rounded-md text-sm font-medium hover:bg-gray-50 hover:border-gray-400 transition-all duration-200"
             >
               Login
             </Link>
             <Link 
               to="/register" 
-              className="px-4 py-2 bg-red-600 text-white rounded-md text-sm font-medium hover:bg-red-700 transition-all duration-200"
+              className="px-4 py-2 bg-red-800 text-white rounded-md text-sm font-medium hover:bg-red-700 transition-all duration-200"
             >
               Register
             </Link>

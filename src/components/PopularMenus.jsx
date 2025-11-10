@@ -1,73 +1,9 @@
 import React from 'react';
 import { Star, Clock, DollarSign, Heart, Flame, Leaf, Beef, Wheat } from 'lucide-react';
+import { popularMenus } from '../assets/assets';
 
 const PopularMenus = () => {
-  const popularMenus = [
-    {
-      id: 1,
-      name: 'Truffle Mushroom Pasta',
-      image: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
-      restaurant: 'Bella Vista',
-      price: '$24',
-      rating: 4.8,
-      prepTime: '20-25 min',
-      category: 'Main Course',
-      calories: '420 cal',
-      isVegetarian: false,
-      isSpicy: false,
-      isPopular: true,
-      description: 'Creamy pasta with wild mushrooms and black truffle',
-      tags: ['Signature', 'Creamy', 'Gourmet']
-    },
-    {
-      id: 2,
-      name: 'Dragon Roll Sushi',
-      image: 'https://images.unsplash.com/photo-1563612116625-3012372fccce?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
-      restaurant: 'Sakura Sushi',
-      price: '$18',
-      rating: 4.7,
-      prepTime: '15-20 min',
-      category: 'Sushi',
-      calories: '320 cal',
-      isVegetarian: false,
-      isSpicy: true,
-      isPopular: true,
-      description: 'Eel, avocado, and cucumber with spicy mayo',
-      tags: ['Spicy', 'Fresh', 'Best Seller']
-    },
-    {
-      id: 3,
-      name: 'Birria Tacos',
-      image: 'https://images.unsplash.com/photo-1551504734-5ee1c4a1479b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
-      restaurant: 'El Fuego',
-      price: '$16',
-      rating: 4.9,
-      prepTime: '18-22 min',
-      category: 'Tacos',
-      calories: '380 cal',
-      isVegetarian: false,
-      isSpicy: true,
-      isPopular: true,
-      description: 'Slow-cooked beef tacos with consommé dip',
-      tags: ['Trending', 'Hearty', 'Authentic']
-    },
-    {
-      id: 6,
-      name: 'Butter Chicken',
-      image: 'https://images.unsplash.com/photo-1565557623262-b51c2513a641?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
-      restaurant: 'Spice Route',
-      price: '$22',
-      rating: 4.8,
-      prepTime: '25-35 min',
-      category: 'Curry',
-      calories: '410 cal',
-      isVegetarian: false,
-      isSpicy: false,
-      isPopular: true,
-      description: 'Tender chicken in rich tomato butter sauce',
-      tags: ['Creamy', 'Aromatic', 'Best Seller']
-    },
-  ];
+  
 
   const getDietIcon = (menu) => {
     if (menu.isVegetarian) return <Leaf className="w-4 h-4 text-green-500" />;

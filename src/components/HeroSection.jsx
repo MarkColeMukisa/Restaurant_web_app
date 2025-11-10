@@ -1,74 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Search, Star, MapPin, Utensils, Clock, DollarSign, Heart, Shield, Users, Award } from 'lucide-react';
+import { Search, Star, MapPin, Utensils, Clock, Heart, Shield, Users, Award } from 'lucide-react';
+import { featuredItems, popularCuisines } from '../assets/assets';
 
 const HeroSection = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
   const [searchLocation, setSearchLocation] = useState('');
   const [searchCuisine, setSearchCuisine] = useState('');
-
-  const featuredItems = [
-    {
-      type: 'restaurant',
-      image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
-      name: 'Bella Vista',
-      cuisine: 'Italian',
-      price: '$$$',
-      location: 'Downtown',
-      rating: 4.7,
-      reviews: 284,
-      distance: '0.8 miles',
-      status: 'Open Now',
-      isOpen: true,
-      deliveryTime: '25-35 min',
-      promotion: 'Free delivery'
-    },
-    {
-      type: 'menu',
-      image: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
-      name: 'Truffle Pasta',
-      restaurant: 'Bella Vista',
-      price: '$24',
-      category: 'Main Course',
-      rating: 4.8,
-      prepTime: '20-25 min',
-      isFeatured: true,
-      calories: '420 cal',
-      popular: true
-    },
-    {
-      type: 'restaurant',
-      image: 'https://images.unsplash.com/photo-1559339352-11d035aa65de?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
-      name: 'Sakura Sushi',
-      cuisine: 'Japanese',
-      price: '$$',
-      location: 'Midtown',
-      rating: 4.5,
-      reviews: 156,
-      distance: '1.2 miles',
-      status: 'Closes soon',
-      isOpen: true,
-      deliveryTime: '30-40 min',
-      promotion: '20% off first order'
-    },
-    {
-      type: 'menu',
-      image: 'https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
-      name: 'Avocado Roll',
-      restaurant: 'Sakura Sushi',
-      price: '$12',
-      category: 'Appetizer',
-      rating: 4.6,
-      prepTime: '10-15 min',
-      isFeatured: false,
-      calories: '180 cal',
-      popular: true
-    }
-  ];
-
-  const popularCuisines = [
-    'Italian', 'Japanese', 'Mexican', 'Chinese', 'Indian', 'Thai', 'American', 'Mediterranean'
-  ];
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -132,7 +70,7 @@ const HeroSection = () => {
               
               <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 leading-tight">
                 Discover & Savor
-                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 mt-2">
+                <span className="block text-transparent  bg-clip-text bg-gradient-to-r from-red-800 to-purple-600 mt-2">
                   Exceptional Flavors
                 </span>
               </h1>
@@ -170,7 +108,7 @@ const HeroSection = () => {
                     </div>
                     <button 
                     type="submit"
-                    className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2.5 rounded-lg font-semibold hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-[1.02] flex items-center gap-2 justify-center shadow-md hover:shadow-lg text-sm"
+                    className="bg-red-800 text-white px-6 py-2.5 rounded-lg font-semibold hover:from-orange-700 transition-all duration-300 transform hover:scale-[1.02] flex items-center gap-2 justify-center shadow-md hover:shadow-lg text-sm"
                     >
                     <Search className="w-4 h-4" />
                     Search
@@ -351,7 +289,6 @@ const HeroSection = () => {
                         </p>
                         <div className="flex items-center gap-4 text-sm text-gray-500">
                           <div className="flex items-center gap-1">
-                            <DollarSign className="w-4 h-4" />
                             <span>{currentItem.price}</span>
                           </div>
                           <div className="flex items-center gap-1">

@@ -16,7 +16,6 @@ const HomePage = () => {
         <PopularMenus/>
         <ExclusiveOffers/>
         <Testimonials/>
-        {/* <Footer/> */}
     </div>
   )
 }

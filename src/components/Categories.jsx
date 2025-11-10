@@ -1,98 +1,13 @@
 import React, { useState, useRef } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import PopularDestinations from './PopularDestinations';
+import { categories } from '../assets/assets';
 
 const Categories = () => {
   const [activeCategory, setActiveCategory] = useState('all');
   const scrollContainerRef = useRef(null);
 
-  const categories = [
-    {
-      id: 'all',
-      name: 'All',
-      image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80',
-      count: '250+',
-      bgColor: 'bg-gradient-to-br from-gray-500 to-gray-600'
-    },
-    {
-      id: 'italian',
-      name: 'Italian',
-      image: 'https://images.unsplash.com/photo-1571091718767-18b5b1457add?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80',
-      count: '45',
-      bgColor: 'bg-gradient-to-br from-orange-500 to-red-500'
-    },
-    {
-      id: 'japanese',
-      name: 'Japanese',
-      image: 'https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80',
-      count: '32',
-      bgColor: 'bg-gradient-to-br from-red-500 to-pink-500'
-    },
-    {
-      id: 'mexican',
-      name: 'Mexican',
-      image: 'https://images.unsplash.com/photo-1565299585323-38174c13fae8?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80',
-      count: '28',
-      bgColor: 'bg-gradient-to-br from-green-500 to-emerald-500'
-    },
-    {
-      id: 'chinese',
-      name: 'Chinese',
-      image: 'https://images.unsplash.com/photo-1563245372-f21724e3856d?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80',
-      count: '38',
-      bgColor: 'bg-gradient-to-br from-red-600 to-orange-500'
-    },
-    {
-      id: 'indian',
-      name: 'Indian',
-      image: 'https://images.unsplash.com/photo-1585937421612-70a008356fbe?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80',
-      count: '25',
-      bgColor: 'bg-gradient-to-br from-yellow-500 to-orange-500'
-    },
-    {
-      id: 'thai',
-      name: 'Thai',
-      image: 'https://images.unsplash.com/photo-1559314809-0f155d88cb60?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80',
-      count: '18',
-      bgColor: 'bg-gradient-to-br from-purple-500 to-pink-500'
-    },
-    {
-      id: 'american',
-      name: 'American',
-      image: 'https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80',
-      count: '42',
-      bgColor: 'bg-gradient-to-br from-blue-500 to-indigo-500'
-    },
-    {
-      id: 'mediterranean',
-      name: 'Mediterranean',
-      image: 'https://images.unsplash.com/photo-1598214886806-c87b84b7078b?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80',
-      count: '22',
-      bgColor: 'bg-gradient-to-br from-teal-500 to-blue-500'
-    },
-    {
-      id: 'vegetarian',
-      name: 'Vegetarian',
-      image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80',
-      count: '35',
-      bgColor: 'bg-gradient-to-br from-green-600 to-emerald-600'
-    },
-    {
-      id: 'seafood',
-      name: 'Seafood',
-      image: 'https://images.unsplash.com/photo-1563379926898-05f4575a45d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80',
-      count: '29',
-      bgColor: 'bg-gradient-to-br from-blue-400 to-cyan-500'
-    },
-    {
-      id: 'desserts',
-      name: 'Desserts',
-      image: 'https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80',
-      count: '31',
-      bgColor: 'bg-gradient-to-br from-pink-400 to-rose-500'
-    }
-  ];
-
+  
   const scrollLeft = () => {
     if (scrollContainerRef.current) {
       scrollContainerRef.current.scrollBy({ left: -200, behavior: 'smooth' });
@@ -202,15 +117,16 @@ const Categories = () => {
         <PopularDestinations/>
       </div>
 
-      <style jsx>{`
-        .scrollbar-hide {
-          -ms-overflow-style: none;
-          scrollbar-width: none;
-        }
-        .scrollbar-hide::-webkit-scrollbar {
-          display: none;
-        }
-      `}</style>
+      <style>{`
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+`}</style>
+
     </section>
   );
 };
